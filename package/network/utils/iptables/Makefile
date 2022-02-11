@@ -113,10 +113,6 @@ define Package/iptables-nft
 $(call Package/iptables/Default)
   TITLE:=IP firewall administration tool nft
   DEPENDS:=@IPTABLES_NFTABLES +libxtables-nft +libip4tc +IPV6:libip6tc +kmod-ipt-core +kmod-nft-compat
-  ALTERNATIVES:=\
-    300:/usr/sbin/iptables:/usr/sbin/xtables-nft-multi \
-    300:/usr/sbin/iptables-restore:/usr/sbin/xtables-nft-multi \
-    300:/usr/sbin/iptables-save:/usr/sbin/xtables-nft-multi
 endef
 
 define Package/iptables-nft/description
@@ -468,10 +464,6 @@ define Package/ip6tables-nft
 $(call Package/iptables/Default)
   DEPENDS:=@IPV6 +kmod-ip6tables +iptables-nft
   TITLE:=IP firewall administration tool nft
-  ALTERNATIVES:=\
-    300:/usr/sbin/ip6tables:/usr/sbin/xtables-nft-multi \
-    300:/usr/sbin/ip6tables-restore:/usr/sbin/xtables-nft-multi \
-    300:/usr/sbin/ip6tables-save:/usr/sbin/xtables-nft-multi
 endef
 
 define Package/ip6tables-nft/description
